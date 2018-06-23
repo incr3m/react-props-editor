@@ -27,8 +27,8 @@ function toJsonOpts(options){
     })
 }
 
-function cleanState(state){
-    const changedProps = Object.assign({},state);
+function cleanState(state, defaultValues){
+    const changedProps = Object.assign({}, defaultValues, state);
     delete changedProps.propsTypes;
     delete changedProps.propsTypeOptions;
     delete changedProps.propsTypeRender;
@@ -70,6 +70,7 @@ export default class PropsEditor extends Component {
   }
 
   render() {
+    const { defaultValues } = this.props;
     const { propsTypes, propsTypeOptions, propsTypeRender } = this.state;
     if (!propsTypes) {
       return <div>loading...</div>
@@ -90,7 +91,7 @@ export default class PropsEditor extends Component {
                     await this.setState({[pKey]:value});
                     return this.triggerChange()
                 },
-                propValues:cleanState(this.state)
+                propValues:cleanState(this.state, defaultValues)
             })}</div>
           })}
         </div>

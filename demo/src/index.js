@@ -15,10 +15,19 @@ class Demo extends Component {
     return <div>
       <h1>react-props-editor Demo</h1>
       <div>-----Prop Names-------</div>
-      <ReactPropsEditor onChange={({propValues})=>{
+      <ReactPropsEditor 
+      onChange={({propValues})=>{
         this.setState({propValues})
-      }} propObjects={{
-        name: PropObjects.string,
+      }} 
+      defaultValues={{
+        name: 'sdfwer'
+      }}
+      propObjects={{
+        name: PropObjects.string.render(
+          ({onChange, propValues})=>{
+            return <input type='text' value={propValues.name} 
+            onChange={e=>onChange(e.target.value)}/>
+        }),
         location: PropObjects.string.render(({
           onChange,
           propValues
