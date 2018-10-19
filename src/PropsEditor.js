@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { toPropTypes } from './PropObjects'
-import _ from "lodash";
-// import {
-//     Form,
-//     List
-// } from 'semantic-ui-react'
 
 function getPropTypeName(propType) {
     return propType.typeName;
@@ -98,41 +93,3 @@ export default class PropsEditor extends Component {
     );
   }
 }
-
-//   <List horizontal>
-    //     {Object.keys(propsTypes).map(pKey => {
-    //       const propName = propsTypes[pKey];
-    //       const labelTxt = _.capitalize(_.kebabCase(pKey).replace('-',' '));
-    //       return (
-    //           <List.Item key={pKey}>
-    //           { propsTypeOptions[pKey] &&
-    //             <Form.Select label={`${labelTxt} `} 
-    //               options={propsTypeOptions[pKey].map(opt=>({
-    //                 text:opt,
-    //                 value:opt
-    //               }))}
-    //               onChange={async (e,data) => {
-    //                 await this.setState({ [pKey]: (data.value) } )
-    //                 this.triggerChange();
-    //             }}/>
-    //           }
-    //           { !propsTypeOptions[pKey] &&
-    //             <React.Fragment>
-    //             {["string", "number"].indexOf(propName) > -1 && (
-    //               <Form.Input label={`${labelTxt} `} onChange={async (data) => {
-    //                   await this.setState({ [pKey]: (data.target.value) } )
-    //                   this.triggerChange();
-    //                 }}/>
-    //             )}
-    //             {["bool"].indexOf(propName) > -1 && (
-    //                 <Form.Checkbox label={labelTxt} onChange={async (_,data) => {
-    //                   await this.setState({[pKey]: (data.checked) });
-    //                   this.triggerChange();
-    //                 }}/>
-    //             )}
-    //             </React.Fragment>
-    //           }
-    //           </List.Item>
-    //       );
-    //     })}
-    //   </List>

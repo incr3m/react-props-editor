@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import mapValues from 'lodash/mapValues';
+import compact from 'lodash/compact';
 
 export const TYPE_CONVERTER = {
     array(value, propTypes){
@@ -30,7 +31,7 @@ export const TYPE_CONVERTER = {
 }
 
 export function toPropTypes(propObjects){
-    return _.mapValues(propObjects,(o=>o.propType));
+    return mapValues(propObjects,(o=>o.propType));
 }
 
 export function parseGraphData({name,types,values,...rest}){
@@ -54,7 +55,7 @@ export function parseGraphData({name,types,values,...rest}){
 }
 
 
-const PROP_TYPE_NAMES = _.compact(
+const PROP_TYPE_NAMES = compact(
     Object.keys(PropTypes).map(k => {
       if ([   
         // 'array',
